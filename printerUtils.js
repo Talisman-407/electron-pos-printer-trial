@@ -5,6 +5,7 @@ const { PosPrinter } = require("electron-pos-printer");
 let selectedPrinter = null;
 
 const getPrintersList = async (mainWindow) => {
+  console.log("from get printers method");
   try {
     const printers = await mainWindow.webContents.getPrintersAsync();
     console.log("Printers List:", printers);
@@ -15,11 +16,17 @@ const getPrintersList = async (mainWindow) => {
   }
 };
 
-// handles printing functionality
+// Function to check printer health
+const checkPrinterHealth = async (printerName, mainWindow) => {
+  const printersList = await getPrintersList(mainWindow);
+  return printersList.some(printer => printer.name === printerName);
+};
+
+// handles printing
 const handlePrintRequest = (req, res) => {
   const { content, options } = req.body;
 
-  // printerName from options
+  // printer name from options
   const { printerName } = options;
   if (!printerName) {
     return res
@@ -33,6 +40,5 @@ const handlePrintRequest = (req, res) => {
     .then(() => res.json({ success: true }))
     .catch((error) => res.status(500).json({ error: error.message }));
 }; 
-// what if printer gets disconnected after printing process started
 
-module.exports = { getPrintersList, handlePrintRequest };
+module.exports = { getPrintersList, handlePrintRequest, checkPrinterHealth };

@@ -4,7 +4,7 @@ const express = require("express");
 const { getPrintersList } = require("./printerUtils");
 
 // require('@electron/remote/main').initialize();
-const printerRoutes = require("./printerRoutes"); // Import the router
+const printerRoutes = require("./routes"); // Import the router
 let selectedPrinter = null; // Global variable to keep track of the selected printer
 
 function createWindow() {
@@ -24,6 +24,8 @@ function createWindow() {
   // require('@electron/remote/main').enable(mainWindow.webContents);
   global.mainWindow = mainWindow; // Make mainWindow accessible globally
 }
+
+if (require('electron-squirrel-startup')) app.quit();
 
 app.whenReady().then(() => {
   // Register the IPC handler
