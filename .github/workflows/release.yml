@@ -1,0 +1,171 @@
+name: Build and Package Electron App
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Trigger on version tags
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Electron app
+        run: npm run build
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: dist/
+
+  package-windows:
+    runs-on: windows-latest
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: dist/
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Package Electron app for Windows
+        run: npm run make -- --platform=win32
+
+      - name: Upload Package Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: package-windows
+          path: out/make
+
+      - name: Publish to GitHub
+        run: npm run publish -- --platform=win32
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  package-macos:
+    runs-on: macos-latest
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: dist/
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Package Electron app for macOS
+        run: npm run make -- --platform=darwin
+
+      - name: Upload Package Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: package-macos
+          path: out/make
+
+      - name: Publish to GitHub
+        run: npm run publish -- --platform=darwin
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  package-linux:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Download Build Artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: dist/
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Package Electron app for Linux
+        run: npm run make -- --platform=linux
+
+      - name: Upload Package Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: package-linux
+          path: out/make
+
+      - name: Publish to GitHub
+        run: npm run publish -- --platform=linux
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
