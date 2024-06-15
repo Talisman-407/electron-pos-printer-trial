@@ -1,0 +1,489 @@
+[
+  {
+    "type": "text",
+    "value": "Shrimati Sarees Limited",
+    "style": {
+      "font-size": "14px",
+      "text-align": "center",
+      "font-weight": "bold"
+    }
+  },
+  {
+    "type": "text",
+    "value": "26/2, Narayanapuraa, NarayanapuraaBengaluru, Karnataka - 560077",
+    "style": {
+      "font-size": "12px",
+      "text-align": "center",
+      "font-weight": "normal"
+    }
+  },
+  {
+    "type": "text",
+    "value": "Phone : 9910100819<br>Email : indar.kriplani@gmail.com<br>GSTIN : 233203203A23235",
+    "style": {
+      "font-size": "12px",
+      "text-align": "center",
+      "font-weight": "normal"
+    }
+  },
+  {
+    "type": "text",
+    "value": "SALE INVOICE",
+    "style": {
+      "font-size": "18px",
+      "text-align": "center",
+      "font-weight": "bold"
+    }
+  },
+  {
+    "type": "table",
+    "style": {},
+    "tableHeader": [],
+    "tableBody": [
+      [
+        {
+          "type": "text",
+          "value": "Invoice #",
+          "style": {
+            "text-align": "left"
+          }
+        },
+        {
+          "type": "text",
+          "value": "DI20233670",
+          "style": {
+            "text-align": "right"
+          }
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "value": "Order #",
+          "style": {
+            "text-align": "left",
+            "border": "none"
+          }
+        },
+        {
+          "type": "text",
+          "value": "ORD-0728",
+          "style": {
+            "text-align": "right",
+            "border": "none"
+          }
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "value": "Date",
+          "style": {
+            "text-align": "left"
+          }
+        },
+        {
+          "type": "text",
+          "value": "18/02/2023",
+          "style": {
+            "text-align": "right"
+          }
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "value": "Customer",
+          "style": {
+            "text-align": "left"
+          }
+        },
+        {
+          "type": "text",
+          "value": "Sudipta gupta",
+          "style": {
+            "text-align": "right"
+          }
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "value": "Mobile",
+          "style": {
+            "text-align": "left"
+          }
+        },
+        {
+          "type": "text",
+          "value": "7278591612",
+          "style": {
+            "text-align": "right"
+          }
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "value": "Address",
+          "style": {
+            "text-align": "left"
+          }
+        },
+        {
+          "type": "text",
+          "value": "Kolkata , West Bengal - 700001",
+          "style": {
+            "text-align": "right"
+          }
+        }
+      ]
+    ],
+    "tableFooter": [],
+    "tableHeaderStyle": {},
+    "tableBodyStyle": {},
+    "tableFooterStyle": {}
+  },
+  {
+    "type": "table",
+    "style": {},
+    "tableHeader": [
+      {
+        "type": "text",
+        "value": "#"
+      },
+      {
+        "type": "text",
+        "value": "Product",
+        "style": {
+          "text-align": "left"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Qty",
+        "style": {
+          "text-align": "center"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Mrp",
+        "style": {
+          "text-align": "center"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Price",
+        "style": {
+          "text-align": "center"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Amt",
+        "style": {
+          "text-align": "center"
+        }
+      }
+    ],
+    "tableBody": [
+      [
+        {
+          "type": "text",
+          "value": 1
+        },
+        {
+          "type": "text",
+          "value": "Happilo Premium Pumpkin Seeds - 200gm",
+          "style": {
+            "text-align": "left",
+            "max-width": "75px"
+          }
+        },
+        {
+          "type": "text",
+          "value": "3.0",
+          "style": {
+            "text-align": "center"
+          }
+        },
+        {
+          "type": "text",
+          "value": "195.0",
+          "style": {
+            "text-align": "center"
+          }
+        },
+        {
+          "type": "text",
+          "value": "175.0",
+          "style": {
+            "text-align": "center"
+          }
+        },
+        {
+          "type": "text",
+          "value": "525.0",
+          "style": {
+            "text-align": "center"
+          }
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "value": 2
+        },
+        {
+          "type": "text",
+          "value": "Cadbury Bourn Vita - 500gm",
+          "style": {
+            "text-align": "left",
+            "max-width": "75px"
+          }
+        },
+        {
+          "type": "text",
+          "value": "3.0",
+          "style": {
+            "text-align": "center"
+          }
+        },
+        {
+          "type": "text",
+          "value": "228.0",
+          "style": {
+            "text-align": "center"
+          }
+        },
+        {
+          "type": "text",
+          "value": "228.0",
+          "style": {
+            "text-align": "center"
+          }
+        },
+        {
+          "type": "text",
+          "value": "684.0",
+          "style": {
+            "text-align": "center"
+          }
+        }
+      ]
+    ],
+    "tableFooter": [],
+    "tableHeaderStyle": {},
+    "tableBodyStyle": {},
+    "tableFooterStyle": {}
+  },
+  {
+    "type": "table",
+    "style": {},
+    "tableHeader": [],
+    "tableBody": [
+      [
+        {
+          "type": "text",
+          "value": "Taxable Amount",
+          "style": {
+            "text-align": "right",
+            "width": "60%"
+          }
+        },
+        {
+          "type": "text",
+          "value": "Γé╣230.00",
+          "style": {
+            "text-align": "right",
+            "font-weight": "bold",
+            "width": "40%"
+          }
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "value": "Tax",
+          "style": {
+            "text-align": "right",
+            "width": "60%"
+          }
+        },
+        {
+          "type": "text",
+          "value": "Γé╣120.00",
+          "style": {
+            "text-align": "right",
+            "font-weight": "bold",
+            "width": "40%"
+          }
+        }
+      ],
+      [],
+      [],
+      [],
+      [],
+      [
+        {
+          "type": "text",
+          "value": "Total Payable",
+          "style": {
+            "text-align": "right",
+            "width": "60%"
+          }
+        },
+        {
+          "type": "text",
+          "value": "Γé╣3400.00",
+          "style": {
+            "text-align": "right",
+            "width": "40%"
+          }
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "value": "Received",
+          "style": {
+            "text-align": "right",
+            "width": "60%"
+          }
+        },
+        {
+          "type": "text",
+          "value": "Γé╣3366.00",
+          "style": {
+            "text-align": "right",
+            "width": "40%"
+          }
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "value": "Balance",
+          "style": {
+            "text-align": "right",
+            "width": "60%"
+          }
+        },
+        {
+          "type": "text",
+          "value": "Γé╣34.00",
+          "style": {
+            "text-align": "right",
+            "width": "40%",
+            "font-weight": "bold"
+          }
+        }
+      ]
+    ],
+    "tableFooter": [],
+    "tableHeaderStyle": {},
+    "tableBodyStyle": {},
+    "tableFooterStyle": {}
+  },
+  {
+    "type": "table",
+    "style": {},
+    "tableHeader": [],
+    "tableBody": [
+      [
+        {
+          "type": "text",
+          "value": "Used Wallet Points",
+          "style": {
+            "text-align": "left"
+          }
+        },
+        {
+          "type": "text",
+          "value": 80,
+          "style": {
+            "text-align": "right",
+            "font-weight": "bold"
+          }
+        }
+      ],
+      [
+        {
+          "type": "text",
+          "value": "Earned Wallet Points",
+          "style": {
+            "text-align": "left"
+          }
+        },
+        {
+          "type": "text",
+          "value": 54,
+          "style": {
+            "text-align": "right",
+            "font-weight": "bold"
+          }
+        }
+      ]
+    ],
+    "tableFooter": [],
+    "tableHeaderStyle": {},
+    "tableBodyStyle": {},
+    "tableFooterStyle": {}
+  },
+  {
+    "type": "text",
+    "value": "You have saved <br>Γé╣120 in this visit",
+    "style": {
+      "text-align": "center",
+      "font-weight": "bold",
+      "border-top": "1px dashed black",
+      "border-bottom": "1px dashed black",
+      "padding-top": "2px",
+      "padding-bottom": "2px"
+    }
+  },
+  {
+    "type": "image",
+    "url": "https://storage.googleapis.com/shy-pub/9/1675351708612_1654846276341signature.jpeg",
+    "position": "right",
+    "width": "100px",
+    "height": "55px"
+  },
+  {
+    "type": "text",
+    "value": "For Shrimati Stores<br> (Signatory)",
+    "style": {
+      "font-size": "12px",
+      "text-align": "center",
+      "font-weight": "normal"
+    }
+  },
+  {
+    "type": "text",
+    "value": "Thank you for Shopping with us",
+    "style": {
+      "margin": "4px",
+      "text-align": "center"
+    }
+  },
+  {
+    "type": "text",
+    "value": "Terms and Conditions",
+    "style": {
+      "font-size": "12px",
+      "text-align": "center",
+      "font-weight": "bold"
+    }
+  },
+  {
+    "type": "text",
+    "value": "Bill inclusive of tax<br> All Disputes will be settled in Bengaluru",
+    "style": {
+      "font-size": "12px",
+      "text-align": "center",
+      "font-weight": "normal"
+    }
+  }
+]
