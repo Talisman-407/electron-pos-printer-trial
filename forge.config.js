@@ -24,6 +24,7 @@ module.exports = {
         background: path.resolve(__dirname, 'assets/pos%20printer%20background.png'),
         icon: path.resolve(__dirname, 'assets/icon-mac.icns'),
         overwrite: true,
+        format: 'ULFO'
       },
     },
     {
