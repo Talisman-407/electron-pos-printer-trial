@@ -11,21 +11,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Download Build Artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: dist/
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
 
       - name: Cache Node.js modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
@@ -39,7 +33,7 @@ jobs:
         run: npx electron-forge make --platform=win32
 
       - name: Upload Package Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: package-windows
           path: out/make
@@ -55,21 +49,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Download Build Artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: dist/
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
 
       - name: Cache Node.js modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
@@ -83,7 +71,7 @@ jobs:
         run: npx electron-forge make --platform=darwin
 
       - name: Upload Package Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: package-macos
           path: out/make
@@ -99,21 +87,15 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Download Build Artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: dist/
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
 
       - name: Cache Node.js modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
@@ -127,7 +109,7 @@ jobs:
         run: npx electron-forge make --platform=linux
 
       - name: Upload Package Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: package-linux
           path: out/make
@@ -136,4 +118,5 @@ jobs:
         run: npx electron-forge publish --platform=linux
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
           GITHUB_REF: ${{ github.ref }}
