@@ -55,6 +55,7 @@ module.exports = {
         },
         prerelease: true, // Set to true for prerelease versions
         draft: false, // Set to true to create a draft release
+        tag: process.env.GITHUB_REF?.replace('refs/tags/', ''), // Get the current tag from the environment variable
       },
     },
   ],
