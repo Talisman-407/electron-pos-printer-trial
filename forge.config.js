@@ -17,8 +17,12 @@ module.exports = {
       },
     },
     {
-      name: '@electron-forge/maker-zip',
-      platforms: ['darwin'],
+      name: '@electron-forge/maker-dmg',
+      config: {
+        background: path.resolve(__dirname, 'assets/pos%20printer%20background.png'),
+        icon: path.resolve(__dirname, 'assets/icon-mac.icns'),
+        overwrite: true,
+      },
     },
     {
       name: '@electron-forge/maker-deb',
