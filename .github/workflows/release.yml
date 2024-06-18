@@ -45,9 +45,10 @@ jobs:
           path: out/make
 
       - name: Publish to GitHub
-        run: npm run publish -- --platform=win32
+        run: npx electron-forge publish --platform=win32
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REF: ${{ github.ref }}
 
   package-macos:
     runs-on: macos-latest
@@ -88,9 +89,10 @@ jobs:
           path: out/make
 
       - name: Publish to GitHub
-        run: npm run publish -- --platform=darwin
+        run: npx electron-forge publish --platform=darwin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REF: ${{ github.ref }}
 
   package-linux:
     runs-on: ubuntu-latest
@@ -131,6 +133,7 @@ jobs:
           path: out/make
 
       - name: Publish to GitHub
-        run: npm run publish -- --platform=linux
+        run: npx electron-forge publish --platform=linux
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REF: ${{ github.ref }}
