@@ -14,6 +14,8 @@ module.exports = {
       config: {
         iconUrl: 'https://raw.githubusercontent.com/Talisman-407/electron-pos-printer-trial/main/assets/Frame%202608228.ico', // URL to your .ico file on GitHub
         setupIcon: path.resolve(__dirname, 'assets/Frame 2608228.ico'),
+        authors: 'Shoopy Inc',
+        description: 'A simple POS printing utility',
       },
     },
     {
