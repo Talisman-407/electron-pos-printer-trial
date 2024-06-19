@@ -5,15 +5,15 @@ const path = require('path');
 module.exports = {
   packagerConfig: {
     asar: true,
-    icon :path.resolve(__dirname, 'assets/Frame 2608228'),
+    icon :path.resolve(__dirname, 'assets/app-icon'),
   },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
       config: {
-        iconUrl: 'https://raw.githubusercontent.com/Talisman-407/electron-pos-printer-trial/main/assets/Frame%202608228.ico', // URL to your .ico file on GitHub
-        setupIcon: path.resolve(__dirname, 'assets/Frame 2608228.ico'),
+        iconUrl: 'https://raw.githubusercontent.com/Talisman-407/electron-pos-printer-trial/trial-1/assets/app-icon.ico', // URL to your .ico file on GitHub
+        setupIcon: path.resolve(__dirname, 'assets/app-icon.ico'),
         authors: 'Shoopy Inc',
         description: 'A simple POS printing utility',
       },
@@ -21,8 +21,9 @@ module.exports = {
     {
       name: '@electron-forge/maker-dmg',
       config: {
-        background: path.resolve(__dirname, 'assets/pos%20printer%20background.png'),
-        icon: path.resolve(__dirname, 'assets/icon-mac.icns'),
+        background: path.resolve(__dirname, 'assets/app-background.png'),
+        icon: path.resolve(__dirname, 'assets/app-icon.icns'),
+        iconSize: 80,
         overwrite: true,
         format: 'ULFO'
       },
