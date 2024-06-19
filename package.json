@@ -25,7 +25,8 @@
     "@electron-forge/plugin-fuses": "^7.4.0",
     "@electron-forge/publisher-github": "^7.4.0",
     "@electron/fuses": "^1.8.0",
-    "electron": "^30.0.6"
+    "electron": "^30.0.6",
+    "appdmg"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
