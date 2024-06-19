@@ -66,7 +66,7 @@ jobs:
         run: |
           python3 -m venv venv
           source venv/bin/activate
-          pip install setuptools distutils
+          pip install --upgrade pip setuptools
 
       - name: Cache Node.js modules
         uses: actions/cache@v4
