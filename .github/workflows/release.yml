@@ -44,6 +44,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REF: ${{ github.ref }}
 
+  
   package-macos:
     runs-on: macos-latest
 
@@ -65,7 +66,7 @@ jobs:
         run: |
           python3 -m venv venv
           source venv/bin/activate
-          pip install setuptools
+          pip install setuptools distutils
 
       - name: Cache Node.js modules
         uses: actions/cache@v4
@@ -76,11 +77,14 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install dependencies
-        run: npm install
-             npm install --save-dev appdmg
+        run: |
+          npm install
+          npm install --save-dev appdmg
 
       - name: Package Electron app for macOS
-        run: npx electron-forge make --platform=darwin
+        run: |
+          source venv/bin/activate
+          npx electron-forge make --platform=darwin
 
       - name: Upload Package Artifacts
         uses: actions/upload-artifact@v4
@@ -89,11 +93,12 @@ jobs:
           path: out/make
 
       - name: Publish to GitHub
-        run: npx electron-forge publish --platform=darwin
+        run: |
+          source venv/bin/activate
+          npm run publish -- --platform=darwin
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REF: ${{ github.ref }}
-
+          
   package-linux:
     runs-on: ubuntu-latest
 
