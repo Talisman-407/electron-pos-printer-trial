@@ -56,10 +56,16 @@ jobs:
         with:
           node-version: 'lts/*'
 
-      - name: Install Python distutils
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Create virtual environment
         run: |
-          python3 -m ensurepip
-          python3 -m pip install setuptools
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install setuptools
 
       - name: Cache Node.js modules
         uses: actions/cache@v4
