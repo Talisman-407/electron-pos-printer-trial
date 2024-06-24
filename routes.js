@@ -3,6 +3,15 @@ const router = express.Router();
 const { sampleData, testData} = require('./sampleData'); 
 const { getPrintersList, handlePrintRequest, checkPrinterHealth } = require('./printerUtils'); 
 
+// Define the allowed origins
+const allowedOrigins = ['https://stage.web.shoopy.in', 'https://web.shoopy.in', 'http://localhost:3002'];
+
+const corsOptions = {
+  origin: allowedOrigins,
+  optionsSuccessStatus: 200
+};
+
+router.use(cors(corsOptions));
 
 // Route to check if service is up or down
 router.get("/v1/health", (req, res) => {

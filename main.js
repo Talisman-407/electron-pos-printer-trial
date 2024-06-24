@@ -41,7 +41,7 @@ app.whenReady().then(() => {
   // use the API routes
   exp.use("/api", printerRoutes);
 
-  const port = 3000;
+  const port = 8080;
   exp.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
     // Notify renderer process of the server port
