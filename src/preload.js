@@ -1,9 +1,10 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
-console.log("Preload script loaded");
-
-// Expose the API to the renderer process
-contextBridge.exposeInMainWorld("electronAPI", {
+contextBridge.exposeInMainWorld("electron", {
+  ipcRenderer: {
+    invoke: (...args) => ipcRenderer.invoke(...args),
+    on: (...args) => ipcRenderer.on(...args),
+  },
   getServerPort: async () => {
     const port = await ipcRenderer.invoke("get-server-port");
     return port;
@@ -12,5 +13,5 @@ contextBridge.exposeInMainWorld("electronAPI", {
     ipcRenderer.on("printer-selected", (event, printerName) => {
       callback(printerName);
     });
-  }
+  },
 });

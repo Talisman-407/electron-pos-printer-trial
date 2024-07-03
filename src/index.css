@@ -1,0 +1,119 @@
+body {
+  font-family: "Noto Sans", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: auto;
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.printer-logo {
+  height: 36px;
+  width: 36px;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-text > div:first-child {
+  font-weight: bold;
+  font-size: 12px;
+  color: #666666;
+}
+
+.header-text > div:nth-child(2) {
+  font-weight: 700;
+  font-size: 16px;
+  color: #1a1a1a;
+}
+
+.content {
+  background-color: none;
+}
+
+#loader_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 150px;
+}
+
+.loader {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#scanningDevices {
+  margin-left: 50px;
+  text-align: center;
+  color: #333;
+  font-size: 14px;
+}
+
+#printers_container {
+  background-color: white;
+  padding-left: 8px;
+  padding-top: 20px;
+}
+
+.printer {
+  width: 100%;
+  max-width: calc(100% - 20px);
+  border: 1px solid #e1e1e1;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.printer-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.printer span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-grow: 1;
+  font-size: 12px;
+  font-weight: 500;
+  color: #1a1a1a;
+  font-family: "Noto Sans";
+}

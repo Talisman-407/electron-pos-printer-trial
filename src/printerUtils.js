@@ -5,10 +5,8 @@ const { PosPrinter } = require("electron-pos-printer");
 let selectedPrinter = null;
 
 const getPrintersList = async (mainWindow) => {
-  console.log("from get printers method");
   try {
     const printers = await mainWindow.webContents.getPrintersAsync();
-    console.log("Printers List:", printers);
     return printers;
   } catch (error) {
     console.error("Failed to get printers:", error);
@@ -19,26 +17,29 @@ const getPrintersList = async (mainWindow) => {
 // Function to check printer health
 const checkPrinterHealth = async (printerName, mainWindow) => {
   const printersList = await getPrintersList(mainWindow);
-  return printersList.some(printer => printer.name === printerName);
+  return printersList.some((printer) => printer.name === printerName);
 };
 
 // handles printing
-const handlePrintRequest = (req, res) => {
-  const { content, options } = req.body;
+const handlePrintRequest = async (req, res) => {
+  const { options, content } = req.body;
 
-  // printer name from options
-  const { printerName } = options;
-  if (!printerName) {
-    return res
-      .status(400)
-      .json({ error: "printerName is required in options" });
+  try {
+    const { printerName } = options;
+
+    if (!printerName) {
+      return res
+        .status(400)
+        .json({ error: "printerName is required in options" });
+    }
+
+    const response = await PosPrinter.print(content, options);
+
+    res.json({ success: true, message: "Invoice printed successfully" });
+  } catch (error) {
+    console.log("error", error);
+    res.status(500).json({ error: error.message });
   }
-//   selectedPrinter = printerName;
-//   global.mainWindow.webContents.send("printer-selected", selectedPrinter);
-
-  PosPrinter.print(content, options)
-    .then(() => res.json({ success: true }))
-    .catch((error) => res.status(500).json({ error: error.message }));
-}; 
+};
 
 module.exports = { getPrintersList, handlePrintRequest, checkPrinterHealth };

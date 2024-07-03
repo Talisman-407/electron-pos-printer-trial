@@ -340,6 +340,7 @@ const tax_amount = order.tax_amount
       },
     ]
   : [];
+
 const sub_total = [
   order.tax_amount
     ? {
@@ -491,7 +492,6 @@ const notes = order.notes ? "Notes : " + order.notes : "";
 
 const qr_link =
   order.due_amount > 0 && store.upi_address ? QR_link(order, store) : "";
-// console.log(qr_link);
 
 const signature = store.signature_url ? store.signature_url : "";
 const bill_notes = order.bill_notes ? order.bill_notes : "";
@@ -625,7 +625,6 @@ const testData = POSDataBuilder.textLine(store_name, "14px", "center", "bold")
   .textLine("Terms and Conditions", "12px", "center", "bold")
   .textLine(tos, "12px", "center")
   .build();
-console.log(JSON.stringify(testData));
 
 //(order.due_amount>0 && store.upi_address)
 function QR_link(order, store) {
@@ -701,6 +700,6 @@ const sampleData = [
     tableBodyStyle: { border: "0.5px solid #ddd" },
     // custom style for the table footer
     tableFooterStyle: { backgroundColor: "#000", color: "white" },
-  }
+  },
 ];
 module.exports = { sampleData, testData };

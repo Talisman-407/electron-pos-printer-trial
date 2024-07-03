@@ -1,51 +1,52 @@
-const { BrowserWindow, app, ipcMain } = require("electron");
 const path = require("node:path");
+const { BrowserWindow, app, ipcMain } = require("electron");
 const express = require("express");
+const printerRoutes = require("./routes");
 const { getPrintersList } = require("./printerUtils");
 
-// require('@electron/remote/main').initialize();
-const printerRoutes = require("./routes"); // Import the router
-let selectedPrinter = null; // Global variable to keep track of the selected printer
+// Import the router
+let selectedPrinter = null;
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 550,
+    height: 550,
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
       preload: path.join(__dirname, "preload.js"),
       contextIsolation: true,
       enableRemoteModule: true,
     },
   });
-  mainWindow.loadFile("index.html");
-  mainWindow.webContents.openDevTools(); // Optional: Opens DevTools for debugging
+  mainWindow
+    .loadFile(path.join(__dirname, "index.html"))
+    .then(() => {
+      // mainWindow.webContents.openDevTools();
+    })
+    .catch((err) => {
+      console.error("Failed to load index.html:", err);
+    });
 
-  // require('@electron/remote/main').enable(mainWindow.webContents);
-  global.mainWindow = mainWindow; // Make mainWindow accessible globally
+  // mainWindow.setMenu(null);
+
+  global.mainWindow = mainWindow;
 }
 
-if (require('electron-squirrel-startup')) app.quit();
+if (require("electron-squirrel-startup")) app.quit();
 
 app.whenReady().then(() => {
-  // Register the IPC handler
-  // ipcMain.handle('get-server-port', () => serverPort);
-  // ipcMain.handle('get-selected-printer', () => selectedPrinter);
-
   createWindow();
 
-  // Set up the Express server
   const exp = express();
   exp.use(express.json());
 
-  // use the API routes
   exp.use("/api", printerRoutes);
 
   const port = 8080;
   exp.listen(port, () => {
-    console.log(`Server is listening on port ${port}`);
-    // Notify renderer process of the server port
-    mainWindow.webContents.send("server-port", port);
+    mainWindow.webContents.once("did-finish-load", () => {
+      mainWindow.webContents.send("server-port", port);
+    });
   });
 
   // Handle the 'get-server-port' IPC call from the renderer process

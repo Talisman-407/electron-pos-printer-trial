@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shoopy Invoice Printer</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img
+        src="../assets/printer-logo-icon.png"
+        alt="Logo"
+        class="printer-logo"
+      />
+      <div class="header-text">
+        <div>Shoopy</div>
+        <div>Thermal Printer</div>
+      </div>
+    </header>
+    <div class="content">
+      <div id="loader_container">
+        <div class="loader"></div>
+        <!-- Circular loader will be shown here -->
+        <p id="scanningDevices">Scanning Devices...</p>
+      </div>
+
+      <div id="printers_container">
+        <!-- Printers list will be dynamically populated here -->
+      </div>
+    </div>
+    <script type="module" src="renderer.js"></script>
+  </body>
+</html>
