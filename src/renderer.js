@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     ipcRenderer
       .invoke("get-printers")
-      .then(() => {
+      .then((printers) => {
         if (loaderContainer && printersListElement && rescanButton) {
           loaderContainer.style.display = "none"; // Hide the loader
           printersListElement.innerHTML = "";
