@@ -25,13 +25,21 @@
     <div class="content">
       <div id="loader_container">
         <div class="loader"></div>
-        <!-- Circular loader will be shown here -->
         <p id="scanningDevices">Scanning Devices...</p>
       </div>
 
       <div id="printers_container">
         <!-- Printers list will be dynamically populated here -->
       </div>
+      <div class="button_div">
+        <button id="rescan_button" style="display: none">
+          Rescan Printers
+        </button>
+      </div>
+    </div>
+    <div class="note">
+      <b>Note:</b> Ensure the downloaded software is always running when
+      printing invoices.
     </div>
     <script type="module" src="renderer.js"></script>
   </body>
