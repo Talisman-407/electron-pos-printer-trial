@@ -3,9 +3,8 @@ const { BrowserWindow, app, ipcMain } = require("electron");
 const express = require("express");
 const printerRoutes = require("./routes");
 const { getPrintersList } = require("./printerUtils");
-
-// Import the router
-let selectedPrinter = null;
+const https = require("https");
+const fs = require("fs");
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -43,11 +42,23 @@ app.whenReady().then(() => {
   exp.use("/api", printerRoutes);
 
   const port = 8080;
-  exp.listen(port, () => {
+
+  // Load SSL certificates
+  const httpsOptions = {
+    key: fs.readFileSync(path.resolve(__dirname, "../creds/key.pem")),
+    cert: fs.readFileSync(path.resolve(__dirname, "../creds/cert.pem")),
+  };
+
+  // Create and start HTTPS server
+  const httpsServer = https.createServer(httpsOptions, exp);
+  httpsServer.listen(port, () => {
+    console.log(`HTTPS Server running on port ${port}`);
+
     mainWindow.webContents.once("did-finish-load", () => {
       mainWindow.webContents.send("server-port", port);
     });
   });
+
 
   // Handle the 'get-server-port' IPC call from the renderer process
   ipcMain.handle("get-server-port", async () => port);
